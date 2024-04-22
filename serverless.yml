@@ -1,0 +1,24 @@
+service: dummy-function-testing
+verison: '3'
+
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-south-5
+
+functions:
+  gretting-function:
+    handler: hello.handler
+    events: 
+      - httpApi:
+          path: /hello
+          method: get
+  
+  bye-function:
+    handler: bye.handler
+    events: 
+      - httpApi:
+          path: /bye
+          method: get
+  
